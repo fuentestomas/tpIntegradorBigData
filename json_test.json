@@ -1,0 +1,22 @@
+{
+    "w0": {
+        "workers": "w0",
+        "constant": "7.334",
+        "age": "-1.406"
+    },
+    "w1": {
+        "workers": "w1",
+        "constant": "5.235",
+        "age": "-4.936"
+    },
+    "w2": {
+        "workers": "w2",
+        "constant": "3.2225",
+        "age": "-1.478"
+    },
+    "w3": {
+        "workers": "w3",
+        "constant": "0",
+        "age": "0"
+    }
+}
