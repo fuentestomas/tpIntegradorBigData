@@ -18,6 +18,8 @@ def avgAge(df):
     # Creamos y mostramos un grafico con los resultados
     ax = ages.plot.bar(legend=False)
     ax.bar_label(ax.containers[0])
+    ax.set_axisbelow(True)
+    plt.grid(True, axis='y', linestyle=':')
     plt.xticks(rotation=0)
     plt.ylabel('Cantidad')
     plt.xlabel(f'Edades\nLa edad promedio es: {avg}')
@@ -40,6 +42,8 @@ def countriesPayments(df):
     ax.bar_label(ax.containers[1])
     ax.set_xticks(quantity)
     ax.set_xticklabels(combined, rotation='vertical')
+    ax.set_axisbelow(True)
+    plt.grid(True, axis='y', linestyle=':')
 
     plt.legend(["Clientes", "Pagos"])
 
@@ -53,6 +57,8 @@ def paymentsQuantity(df):
 
     ax = products.plot.bar(legend=False, color=colors)
     ax.bar_label(ax.containers[0])
+    ax.set_axisbelow(True)
+    plt.grid(True, axis='y', linestyle=':')
 
     plt.show()
 
