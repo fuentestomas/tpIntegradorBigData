@@ -4,7 +4,7 @@ import pandas as pd
 
 def avgAge(df):
     # Edad Promedio
-    avg = np.trunc(np.average(df['age']))
+    avg = df['age'].mean().round().astype(int)
 
     # Definimos un rango de edad para cada registro
     bins = [18, 23, 28, 33, 38, 43, 48, 53, 58, 63, 68]
