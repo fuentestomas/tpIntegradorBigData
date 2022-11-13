@@ -19,3 +19,4 @@ df = dataframes.createDataFrame()
 
 print(f"{bcolors.OKGREEN}Graphics{bcolors.ENDC}")
 graphics.avgAge(df)
+graphics.countriesPayments(df)
