@@ -20,7 +20,7 @@ def avgAge(df):
     ax.bar_label(ax.containers[0])
     plt.xticks(rotation=0)
     plt.ylabel('Cantidad')
-    plt.xlabel('Edades\nLa edad promedio es: ' + str(avg))
+    plt.xlabel(f'Edades\nLa edad promedio es: {avg}')
 
     plt.show()
 
