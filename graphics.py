@@ -25,24 +25,22 @@ def avgAge(df):
     plt.show()
 
 def countriesPayments(df):
-    clientsCountries = df['country_x'].value_counts().sort_index()
-    paymentsCountries = df['country_y'].value_counts().sort_index()
+    cliCountries = df['country_x'].value_counts().sort_index()
+    payCountries = df['country_y'].value_counts().sort_index()
 
-    cliIndx = clientsCountries.index.tolist()
-    payIndx = paymentsCountries.index.tolist()
-
-    combined = list(dict.fromkeys(cliIndx + payIndx))
-    print(combined)
-    print("clients")
-    print(clientsCountries)
-    print("payments")
-    print(paymentsCountries)
+    combined = list(dict.fromkeys(cliCountries.index.tolist() + payCountries.index.tolist()))
     quantity = np.arange(len(combined))
-    plt.xticks(quantity, combined)
-    # quantity = np.arange(len(cliIndx)) if len(cliIndx) > len(payIndx) else np.arange(len(payIndx))
-    plt.xticks(rotation='vertical')
-    plt.bar(quantity-0.2, clientsCountries.values.tolist(), width=0.4)
-    plt.bar(quantity+0.2, paymentsCountries.values.tolist(), width=0.4)
+
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+
+    ax.bar(quantity-0.2, cliCountries.values.tolist(), color='orange', width=0.4)
+    ax.bar(quantity+0.2, payCountries.values.tolist(), width=0.4)
+    ax.bar_label(ax.containers[0])
+    ax.bar_label(ax.containers[1])
+    ax.set_xticks(quantity)
+    ax.set_xticklabels(combined, rotation='vertical')
+
     plt.legend(["Clientes", "Pagos"])
 
     plt.show();
