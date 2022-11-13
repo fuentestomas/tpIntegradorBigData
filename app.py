@@ -18,5 +18,6 @@ print(f"{bcolors.OKCYAN}DataFrame{bcolors.ENDC}")
 df = dataframes.createDataFrame()
 
 print(f"{bcolors.OKGREEN}Graphics{bcolors.ENDC}")
-graphics.avgAge(df)
-graphics.countriesPayments(df)
+# graphics.avgAge(df)
+# graphics.countriesPayments(df)
+graphics.paymentsQuantity(df)

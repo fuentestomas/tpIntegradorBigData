@@ -43,4 +43,28 @@ def countriesPayments(df):
 
     plt.legend(["Clientes", "Pagos"])
 
-    plt.show();
+    plt.show()
+
+
+def paymentsQuantity(df):
+    products = df['product_id'].value_counts().sort_index()
+    colors = [setColor(x, products.values.tolist()) for x in products.values.tolist()]
+    ax = products.plot.bar(legend=False, color=colors)
+    ax.bar_label(ax.containers[0])
+    quantity = np.arange(len(products.index.tolist()))
+    ax.set_xticks(quantity)
+    ax.set_xticklabels(products.index.tolist(), rotation='vertical')
+    
+
+   
+
+    plt.show()
+
+def setColor(x, array):
+   if x == max(array):
+       return 'green'
+   elif x == min(array):
+       return 'red'
+   else:
+       return 'tab:blue'
+
