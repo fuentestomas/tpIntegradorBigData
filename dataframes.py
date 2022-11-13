@@ -12,13 +12,10 @@ def createDataFrame():
     '''
     query = 'SELECT * FROM pagos'
 
-
     payments = pd.read_sql(query, connection)
     client_data = pd.read_json('client_data.json')
     metadata = pd.read_csv('metadata.csv')
 
     mergedf = client_data.merge(metadata, on=['id']).merge(payments, left_on=['id'], right_on=['client_id'])
-
-    print(mergedf)
 
     return mergedf
