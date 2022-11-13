@@ -13,7 +13,6 @@ def avgAge(df):
 
     # Contamos segun el rango de edad
     ages = df['ageRange'].value_counts().sort_index()
-    print(ages)
 
     # Creamos y mostramos un grafico con los resultados
     ax = ages.plot.bar(legend=False)
