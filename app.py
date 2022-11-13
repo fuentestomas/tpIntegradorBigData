@@ -1,4 +1,5 @@
 import dataframes
+import graphics
 
 # Para imprimir con colores
 class bcolors:
@@ -15,3 +16,6 @@ class bcolors:
 print(f"{bcolors.OKCYAN}DataFrame{bcolors.ENDC}")
 
 df = dataframes.createDataFrame()
+
+print(f"{bcolors.OKGREEN}Graphics{bcolors.ENDC}")
+graphics.avgAge(df)
