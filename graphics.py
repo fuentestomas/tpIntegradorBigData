@@ -34,8 +34,8 @@ def countriesPayments(df):
     fig = plt.figure()
     ax = fig.add_subplot(111)
 
-    ax.bar(quantity-0.2, cliCountries.values.tolist(), color='orange', width=0.4)
-    ax.bar(quantity+0.2, payCountries.values.tolist(), width=0.4)
+    ax.bar(quantity-0.2, cliCountries, color='orange', width=0.4)
+    ax.bar(quantity+0.2, payCountries, width=0.4)
     ax.bar_label(ax.containers[0])
     ax.bar_label(ax.containers[1])
     ax.set_xticks(quantity)
