@@ -16,7 +16,9 @@ def avgAge(df):
     print(ages)
 
     # Creamos y mostramos un grafico con los resultados
-    plt.bar(ages.index.tolist(), ages.values.tolist(), width=0.4)
+    ax = ages.plot.bar(legend=False)
+    ax.bar_label(ax.containers[0])
+    plt.xticks(rotation=0)
     plt.ylabel('Cantidad')
     plt.xlabel('Edades\nLa edad promedio es: '+ str(avg))
 
