@@ -2,8 +2,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-def avgAge(df: pd.DataFrame):
-    # Edad Promedio
+
+def age_distribution(df: pd.DataFrame):
+    # Edad promedio
     avg = df['age'].mean().round().astype(int)
 
     # Tamaño de cada intervalo de edad
@@ -27,7 +28,8 @@ def avgAge(df: pd.DataFrame):
 
     plt.show()
 
-def countriesPayments(df: pd.DataFrame):
+
+def country_distribution(df: pd.DataFrame):
     # Contamos la cantidad de ocurrencias de cada pais para los clientes (cli) y para los pagos (pay)
     cliCountries = df['country_x'].value_counts().sort_index()
     payCountries = df['country_y'].value_counts().sort_index()
@@ -61,7 +63,7 @@ def countriesPayments(df: pd.DataFrame):
     plt.show()
 
 
-def paymentsQuantity(df: pd.DataFrame):
+def product_purchases(df: pd.DataFrame):
     # Contamos los productos por cantidad de ocurrencia de su ID
     products = df['product_id'].value_counts().sort_index()
 
@@ -83,6 +85,7 @@ def paymentsQuantity(df: pd.DataFrame):
 
     plt.show()
 
+
 def setColor(x, array):
     # En caso de que la cantidad de ocurrencias coincida con la maxima devuelve el color verde,
     # si coincide con la minima devuelve rojo. Si no es ninguna devuelve un azul.
@@ -92,4 +95,3 @@ def setColor(x, array):
         return 'red'
     else:
         return 'tab:blue'
-

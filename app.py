@@ -22,15 +22,15 @@ print(f'{bcolors.OKGREEN}DataFrame Created{bcolors.ENDC}')
 print(f'{bcolors.HEADER}\nGraphics Creation\n{bcolors.ENDC}')
 
 print(f'{bcolors.OKCYAN}Calculating Average Age...{bcolors.ENDC}')
-graphics.avgAge(df)
+graphics.age_distribution(df)
 print(f'{bcolors.OKGREEN}Average Age Finished\n{bcolors.ENDC}')
 
 print(f'{bcolors.OKCYAN}Calculating Payments From Countries...{bcolors.ENDC}')
-graphics.countriesPayments(df)
+graphics.country_distribution(df)
 print(f'{bcolors.OKGREEN}Payments From Countries Finished\n{bcolors.ENDC}')
 
 print(f'{bcolors.OKCYAN}Calculating Products Payments...{bcolors.ENDC}')
-graphics.paymentsQuantity(df)
+graphics.product_purchases(df)
 print(f'{bcolors.OKGREEN}Products Payments Finished\n{bcolors.ENDC}')
 
 print(f'{bcolors.HEADER}Program Finished{bcolors.ENDC}')
