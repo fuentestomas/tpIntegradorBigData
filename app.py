@@ -13,11 +13,24 @@ class bcolors:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
-print(f"{bcolors.OKCYAN}DataFrame{bcolors.ENDC}")
+print(f"{bcolors.HEADER}DataFrame Creation\n{bcolors.ENDC}")
 
+print(f"{bcolors.OKCYAN}Creating DataFrame...{bcolors.ENDC}")
 df = dataframes.createDataFrame()
+print(f"{bcolors.OKGREEN}DataFrame Created{bcolors.ENDC}")
 
-print(f"{bcolors.OKGREEN}Graphics{bcolors.ENDC}")
+print(f"{bcolors.HEADER}\nGraphics Creation\n{bcolors.ENDC}")
+
+print(f"{bcolors.OKCYAN}Calculating Average Age...{bcolors.ENDC}")
 graphics.avgAge(df)
+print(f"{bcolors.OKGREEN}Average Age Finished\n{bcolors.ENDC}")
+
+print(f"{bcolors.OKCYAN}Calculating Payments From Countries...{bcolors.ENDC}")
 graphics.countriesPayments(df)
+print(f"{bcolors.OKGREEN}Payments From Countries Finished\n{bcolors.ENDC}")
+
+print(f"{bcolors.OKCYAN}Calculating Products Payments...{bcolors.ENDC}")
 graphics.paymentsQuantity(df)
+print(f"{bcolors.OKGREEN}Products Payments Finished\n{bcolors.ENDC}")
+
+print(f"{bcolors.HEADER}Program Finished{bcolors.ENDC}")
