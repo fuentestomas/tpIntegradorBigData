@@ -28,13 +28,11 @@ def avgAge(df):
 def countriesPayments(df):
     # Contamos la cantidad de ocurrencias de cada pais para los clientes (cli) y para los pagos (pay)
     cliCountries = df['country_x'].value_counts().sort_index()
-    cliDf = pd.DataFrame(cliCountries)
     payCountries = df['country_y'].value_counts().sort_index()
-    payDf = pd.DataFrame(payCountries)
 
     # Obtenemos el pais con mas ocurrencias para ambos casos
-    cliMax = cliDf.index[cliDf['country_x'] == max(cliDf['country_x'])].tolist()
-    payMax = payDf.index[payDf['country_y'] == max(payDf['country_y'])].tolist()
+    cliMax = cliCountries[cliCountries == cliCountries.max()].index.tolist()
+    payMax = payCountries[payCountries == payCountries.max()].index.tolist()
 
     # Combinamos los listados de paises que aparecen en caso de que alguno no este presente en el otro listado
     combined = list(dict.fromkeys(cliCountries.index.tolist() + payCountries.index.tolist()))
@@ -64,11 +62,10 @@ def countriesPayments(df):
 def paymentsQuantity(df):
     # Contamos los productos por cantidad de ocurrencia de su ID
     products = df['product_id'].value_counts().sort_index()
-    prodDf = pd.DataFrame(products)
 
     # Buscamos el maximo y el minimo para saber cual se vendio mas y cual menos
-    prodMax = prodDf.index[prodDf['product_id'] == max(prodDf['product_id'])].tolist()
-    prodMin = prodDf.index[prodDf['product_id'] == min(prodDf['product_id'])].tolist()
+    prodMax = products[products == products.max()].index.tolist()
+    prodMin = products[products == products.min()].index.tolist()
 
     # Definimos colores para que sean identificables en el grafico
     colors = [setColor(x, products) for x in products]
