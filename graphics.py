@@ -6,13 +6,15 @@ def avgAge(df):
     # Edad Promedio
     avg = df['age'].mean().round().astype(int)
 
-    # Definimos un rango de edad para cada registro
-    bins = [18, 23, 28, 33, 38, 43, 48, 53, 58, 63, 68]
-    labels = ['18-22', '23-27', '28-32', '33-37', '38-42', '43-47', '48-52', '53-57', '58-62', '62+']
-    df['ageRange'] = pd.cut(df['age'], bins=bins, labels=labels, right=False)
+    # Tamaño de cada intervalo de edad
+    step = 5
+    # Limites de los intervalos basados en su longitud
+    bin_edges = range(df['age'].min(), df['age'].max() + step, step)
+    # Edades divididas en los intervalos definidos
+    age_intervals = pd.cut(df['age'], bins=bin_edges, right=False)
 
     # Contamos segun el rango de edad
-    ages = df['ageRange'].value_counts().sort_index()
+    ages = age_intervals.value_counts().sort_index()
 
     # Creamos y mostramos un grafico con los resultados
     ax = ages.plot.bar(legend=False)
