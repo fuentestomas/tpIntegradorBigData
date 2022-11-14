@@ -53,7 +53,7 @@ def countriesPayments(df):
     ax.set_axisbelow(True)
     plt.grid(True, axis='y', linestyle=':')
 
-    plt.legend(["Clientes", "Pagos"])
+    plt.legend(['Clientes', 'Pagos'])
     plt.ylabel('Cantidad')
     plt.xlabel(f'Paises\nEl pais con mas clientes que compran es: {cliMax}\nEl pais en el que mas compras se realizan es: {payMax}')
     plt.subplots_adjust(bottom=0.3)
