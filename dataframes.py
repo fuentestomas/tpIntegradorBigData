@@ -1,7 +1,7 @@
 import pandas as pd
 from sqlalchemy import create_engine
 
-def createDataFrame():
+def createDataFrame() -> pd.DataFrame:
     # Definimos la conexion con la base de datos
     connection = create_engine('mysql+mysqldb://sql10553695:gJkK8ArDCg@sql10.freesqldatabase.com/sql10553695')
     '''
