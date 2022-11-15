@@ -24,7 +24,7 @@ def age_distribution(df: pd.DataFrame):
     plt.grid(True, axis='y', linestyle=':')
     plt.xticks(rotation=0)
     plt.ylabel('Cantidad')
-    plt.xlabel(f'Edades\nLa edad promedio es: {avg}')
+    plt.xlabel(f'Edades\n\nEdad promedio: {avg}')
 
     plt.show()
 
@@ -61,7 +61,7 @@ def country_distribution(df: pd.DataFrame):
 
     plt.legend(['Clientes', 'Pagos'])
     plt.ylabel('Cantidad')
-    plt.xlabel(f'Paises\nEl pais con mas clientes que compran es: {cliMax}\nEl pais en el que mas compras se realizan es: {payMax}')
+    plt.xlabel(f'Paises\n\nPaís con más clientes registrados: {cliMax}\nPaís con más compras realizadas: {payMax}')
     plt.subplots_adjust(bottom=0.3)
 
     plt.show()
@@ -89,7 +89,7 @@ def product_purchases(df: pd.DataFrame):
     plt.grid(True, axis='y', linestyle=':')
 
     plt.ylabel('Cantidad')
-    plt.xlabel(f'Productos\nEl producto que mas compran es: {prodMax}\nEl producto que menos compran es: {prodMin}')
+    plt.xlabel(f'Productos\n\nProducto más comprado: {prodMax}\nProducto menos comprado: {prodMin}')
 
     plt.show()
 
