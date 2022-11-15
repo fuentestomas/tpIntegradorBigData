@@ -72,7 +72,7 @@ def product_purchases(df: pd.DataFrame):
     prodMin = products[products == products.min()].index.tolist()
 
     # Definimos colores para que sean identificables en el grafico
-    colors = [setColor(x, products) for x in products]
+    colors = [get_color(value, products) for value in products]
 
     # Creamos y mostramos el grafico de barras
     ax = products.plot.bar(legend=False, color=colors)
@@ -86,12 +86,9 @@ def product_purchases(df: pd.DataFrame):
     plt.show()
 
 
-def setColor(x, array):
-    # En caso de que la cantidad de ocurrencias coincida con la maxima devuelve el color verde,
-    # si coincide con la minima devuelve rojo. Si no es ninguna devuelve un azul.
-    if x == max(array):
+def get_color(value, series: pd.Series):
+    if value == series.max():
         return 'green'
-    elif x == min(array):
+    if value == series.min():
         return 'red'
-    else:
-        return 'tab:blue'
+    return 'tab:blue'
