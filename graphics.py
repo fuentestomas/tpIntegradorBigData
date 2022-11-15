@@ -18,15 +18,17 @@ def age_distribution(df: pd.DataFrame):
     ages = age_intervals.value_counts().sort_index()
 
     # Creamos y mostramos un grafico con los resultados
+    plt.rc('font', size=20)
     ax = ages.plot.bar(legend=False)
     ax.bar_label(ax.containers[0])
     ax.set_axisbelow(True)
     plt.grid(True, axis='y', linestyle=':')
     plt.xticks(rotation=0)
-    plt.ylabel('Cantidad')
-    plt.xlabel(f'Edades\n\nEdad promedio: {avg}')
+    plt.ylabel('Cantidad', labelpad=25)
+    plt.xlabel(f'Edades\n\nEdad promedio: {avg}', labelpad=25)
 
     plt.show()
+    plt.rcParams.update(plt.rcParamsDefault)
 
 
 def country_distribution(df: pd.DataFrame):
@@ -47,24 +49,26 @@ def country_distribution(df: pd.DataFrame):
     quantity = np.arange(len(combined))
 
     # Creamos y mostramos el grafico con los resultados
+    plt.rc('font', size=20)
     fig = plt.figure()
     ax = fig.add_subplot(111)
 
     ax.bar(quantity-0.2, cliCountries, color='orange', width=0.4)
     ax.bar(quantity+0.2, payCountries, width=0.4)
-    ax.bar_label(ax.containers[0])
-    ax.bar_label(ax.containers[1])
+    ax.bar_label(ax.containers[0], size=10)
+    ax.bar_label(ax.containers[1], size=10)
     ax.set_xticks(quantity)
     ax.set_xticklabels(combined, rotation='vertical')
     ax.set_axisbelow(True)
     plt.grid(True, axis='y', linestyle=':')
 
-    plt.legend(['Clientes', 'Pagos'])
-    plt.ylabel('Cantidad')
+    plt.legend(['Clientes', 'Pagos'], fontsize=10)
+    plt.ylabel('Cantidad', labelpad=25)
     plt.xlabel(f'Paises\n\nPaís con más clientes registrados: {cliMax}\nPaís con más compras realizadas: {payMax}')
     plt.subplots_adjust(bottom=0.3)
 
     plt.show()
+    plt.rcParams.update(plt.rcParamsDefault)
 
 
 def product_purchases(df: pd.DataFrame):
@@ -83,8 +87,10 @@ def product_purchases(df: pd.DataFrame):
     colors = [get_color(value, products) for value in products]
 
     # Creamos y mostramos el grafico de barras
+    plt.rc('font', size=20)
+    plt.rc('xtick', labelsize=10)
     ax = products.plot.bar(legend=False, color=colors)
-    ax.bar_label(ax.containers[0])
+    ax.bar_label(ax.containers[0], size=10)
     ax.set_axisbelow(True)
     plt.grid(True, axis='y', linestyle=':')
 
@@ -92,6 +98,7 @@ def product_purchases(df: pd.DataFrame):
     plt.xlabel(f'Productos\n\nProducto más comprado: {prodMax}\nProducto menos comprado: {prodMin}')
 
     plt.show()
+    plt.rcParams.update(plt.rcParamsDefault)
 
 
 def get_color(value, series: pd.Series):
