@@ -5,14 +5,14 @@ import pandas as pd
 
 def age_distribution(df: pd.DataFrame):
     # Edad promedio
-    avg = df['age'].mean().round().astype(int)
+    avg = df['client_age'].mean().round().astype(int)
 
     # Tamaño de cada intervalo de edad
     step = 5
     # Limites de los intervalos basados en su longitud
-    bin_edges = range(df['age'].min(), df['age'].max() + step, step)
+    bin_edges = range(df['client_age'].min(), df['client_age'].max() + step, step)
     # Edades divididas en los intervalos definidos
-    age_intervals = pd.cut(df['age'], bins=bin_edges, right=False)
+    age_intervals = pd.cut(df['client_age'], bins=bin_edges, right=False)
 
     # Contamos segun el rango de edad
     ages = age_intervals.value_counts().sort_index()
@@ -31,8 +31,8 @@ def age_distribution(df: pd.DataFrame):
 
 def country_distribution(df: pd.DataFrame):
     # Contamos la cantidad de ocurrencias de cada pais para los clientes (cli) y para los pagos (pay)
-    cliCountries = df['country_x'].value_counts().sort_index()
-    payCountries = df['country_y'].value_counts().sort_index()
+    cliCountries = df['client_country'].value_counts().sort_index()
+    payCountries = df['payment_country'].value_counts().sort_index()
 
     # Obtenemos el pais con mas ocurrencias para ambos casos
     cliMax = cliCountries[cliCountries == cliCountries.max()].index.tolist()
@@ -65,7 +65,7 @@ def country_distribution(df: pd.DataFrame):
 
 def product_purchases(df: pd.DataFrame):
     # Contamos los productos por cantidad de ocurrencia de su ID
-    products = df['product_id'].value_counts().sort_index()
+    products = df['payment_product_id'].value_counts().sort_index()
 
     # Buscamos el maximo y el minimo para saber cual se vendio mas y cual menos
     prodMax = products[products == products.max()].index.tolist()
