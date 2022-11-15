@@ -38,6 +38,10 @@ def country_distribution(df: pd.DataFrame):
     cliMax = cliCountries[cliCountries == cliCountries.max()].index.tolist()
     payMax = payCountries[payCountries == payCountries.max()].index.tolist()
 
+    # Transformamos cada lista en una string
+    cliMax = comma_separated_string(cliMax)
+    payMax = comma_separated_string(payMax)
+
     # Combinamos los listados de paises que aparecen en caso de que alguno no este presente en el otro listado
     combined = list(dict.fromkeys(cliCountries.index.tolist() + payCountries.index.tolist()))
     quantity = np.arange(len(combined))
@@ -71,6 +75,10 @@ def product_purchases(df: pd.DataFrame):
     prodMax = products[products == products.max()].index.tolist()
     prodMin = products[products == products.min()].index.tolist()
 
+    # Transformamos cada lista en una string
+    prodMax = comma_separated_string(prodMax)
+    prodMin = comma_separated_string(prodMin)
+
     # Definimos colores para que sean identificables en el grafico
     colors = [get_color(value, products) for value in products]
 
@@ -92,3 +100,7 @@ def get_color(value, series: pd.Series):
     if value == series.min():
         return 'red'
     return 'tab:blue'
+
+
+def comma_separated_string(list: list):
+    return ', '.join(map(str, list))
