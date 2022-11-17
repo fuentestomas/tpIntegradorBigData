@@ -90,6 +90,7 @@ def product_purchases(df: pd.DataFrame):
 
     plt.ylabel('Cantidad')
     plt.xlabel(f'Productos\n\nProducto más comprado: {prodMax}\nProducto menos comprado: {prodMin}')
+    plt.subplots_adjust(bottom=0.2)
 
     plt.show()
 
