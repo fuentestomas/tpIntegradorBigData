@@ -17,8 +17,8 @@ def createDataFrame() -> pd.DataFrame:
 
     # Generamos DataFrames con la informacion de cada una de las fuentes
     payments = pd.read_sql(query, connection)
-    client_data = pd.read_json('client_data.json')
-    metadata = pd.read_csv('metadata.csv')
+    client_data = pd.read_json('data/client_data.json')
+    metadata = pd.read_csv('data/metadata.csv')
 
     # Le agregamos prefijos a las columnas de cada DataFrames
     # para facilitar su comprension y procesamiento
